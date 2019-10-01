@@ -5,12 +5,20 @@ body {
 .display-4 {
     color: #f64027;
     text-align: center;
+    font-size: 100px;
 }
 
 .jumbotron {
     margin-left: 100px;
     margin-right: 100px;
-    border-style: dashed;
+    border-style: double;
     border-color: #a6c819;
     border-width: 20px;
+    font-family: 'Cinzel Decorative';
+    text-shadow: 2px 5px 4px black;
+    font-weight: 700;
+}
+
+.container-fluid {
+    font-family: 'Press Start 2P', cursive;
 }
