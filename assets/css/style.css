@@ -11,14 +11,28 @@ body {
 .jumbotron {
     margin-left: 100px;
     margin-right: 100px;
-    border-style: double;
+    border-style: ridge;
     border-color: #a6c819;
     border-width: 20px;
     font-family: 'Cinzel Decorative';
     text-shadow: 2px 5px 4px black;
     font-weight: 700;
+    background-color: #139eff;
 }
 
 .container-fluid {
     font-family: 'Press Start 2P', cursive;
+}
+
+.row {
+    border-style: ridge;
+    border-width: 10px;
+    border-color: #a6c819;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.blueRupee, .greenRupee, .redRupee, .yellowRupee {
+    width: 100px;
+    height: 100px;
 }
