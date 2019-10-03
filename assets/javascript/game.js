@@ -2,46 +2,98 @@
 once DOM is ready */
 
 $(document).ready(function () {
-    //Counter made to keep track of user's total
-    var blueCounter = 0;
-    var greenCounter = 0;
-    var redCounter = 0;
-    var yellowCounter = 0;
-    var totalCounter = blueCounter + greenCounter + redCounter + yellowCounter;
+    //Global Variables Code
+    //`````````````````````````````````````````````````````````````````````````
+
+    //Made an Object that will hold the rupee's value:
+    var rupee = {
+        blue: [
+            value = 0
+        ],
+        green: [
+            value = 0
+        ],
+        red: [
+            value = 0
+        ],
+        yello: [
+            value = 0
+        ]
+    };
+
+    //Holds the current total score:
+    var totalScore = 0;
+    //Holds the target number to win game:
+    var targetNumber = 0;
+    //Holds the number of Wins:
+    var totalWin = 0;
+    //Holds the number of Losses:
+    var totalLoss = 0;
+
+
+
+
+
+
+    //Functions Code
+    //`````````````````````````````````````````````````````````````````````````
+
+    //This function will start the game at the beginning as
+    //well as reset the game:
+    function startGame() {
+        //Reset total score to 0
+        totalScore = 0;
+        //Get target number by calling on randomNum function
+        targetNumber = randomNum(19, 120);
+        //Assign rupee value by calling on randomNum function
+
+    }
+
+    //This function will create a random number when called
+    function randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Main Process Code
+    //`````````````````````````````````````````````````````````````````````````
+
+
+
+
+
     //Make an on-click event for each rupee for when they are clicked
-    $(".blueRupee").on("click", function () {
-        //Adds to the blue counter
-        blueCounter++;
+    $("#blueRupee").on("click", function () {
         //Test on console
-        console.log("You clicked the blue rupee " + blueCounter + " times!");
+        console.log("You clicked the blue rupee");
     });
 
-    $(".greenRupee").on("click", function () {
-        //Adds to the green counter
-        greenCounter++;
+    $("#greenRupee").on("click", function () {
         //Test on console
-        $(".totalScore").text(totalCounter);
+        console.log("You clicked the green rupee");
     });
 
-    $(".redRupee").on("click", function () {
-        //Adds to the red counter
-        redCounter++;
+    $("#redRupee").on("click", function () {
         //Test on console
-        console.log("You clicked the red rupee " + redCounter + " times!");
+        console.log("You clicked the red rupee");
     });
 
-    $(".yellowRupee").on("click", function () {
-        //Adds to the yellow counter
-        yellowCounter++;
+    $("#yellowRupee").on("click", function () {
         //Test on console
-        console.log("You clicked the yellow rupee " + yellowCounter + " times!");
+        console.log("You clicked the yellow rupee");
     });
-
-    //Here I establish the random number for the user to win the round
-    var randomNumber = "";
-
-    //This will input the target number into the HTML
-    $(".randomNum").text(randomNumber);
 
 
 
