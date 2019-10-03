@@ -16,7 +16,7 @@ $(document).ready(function () {
         red: [
             value = 0
         ],
-        yello: [
+        yellow: [
             value = 0
         ]
     };
@@ -46,7 +46,20 @@ $(document).ready(function () {
         //Get target number by calling on randomNum function
         targetNumber = randomNum(19, 120);
         //Assign rupee value by calling on randomNum function
+        rupee.blue.value = randomNum(1, 12);
+        rupee.green.value = randomNum(1, 12);
+        rupee.red.value = randomNum(1, 12);
+        rupee.yellow.value = randomNum(1, 12);
+        //Changes to HTML
+        $("#randomNum").text(targetNumber);
 
+        // console.log(targetNumber);
+        // console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        // console.log(rupee.blue.value);
+        // console.log(rupee.green.value);
+        // console.log(rupee.red.value);
+        // console.log(rupee.yellow.value);
+        // console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
 
     //This function will create a random number when called
@@ -70,34 +83,49 @@ $(document).ready(function () {
     //Main Process Code
     //`````````````````````````````````````````````````````````````````````````
 
+    //Call Start Game Function
+    startGame();
 
 
 
 
     //Make an on-click event for each rupee for when they are clicked
     $("#blueRupee").on("click", function () {
-        //Test on console
-        console.log("You clicked the blue rupee");
+        //Adds blue rupee value to total score variable.
+        totalScore = totalScore + rupee.blue.value;
+        //Displays total score from blue rupee click.
+        $("#totalScore").text(totalScore);
     });
 
     $("#greenRupee").on("click", function () {
-        //Test on console
-        console.log("You clicked the green rupee");
+        //Adds green rupee value to total score variable.
+        totalScore = totalScore + rupee.green.value;
+        //Displays total score from green rupee click.
+        $("#totalScore").text(totalScore);
     });
 
     $("#redRupee").on("click", function () {
-        //Test on console
-        console.log("You clicked the red rupee");
+        //Adds red rupee value to total score variable.
+        totalScore = totalScore + rupee.red.value;
+        //Displays total score from red rupee click.
+        $("#totalScore").text(totalScore);
     });
 
     $("#yellowRupee").on("click", function () {
-        //Test on console
-        console.log("You clicked the yellow rupee");
+        //Adds yellow rupee value to total score variable.
+        totalScore = totalScore + rupee.yellow.value;
+        //Displays total score from yellow rupee click.
+        $("#totalScore").text(totalScore);
     });
 
 
+    if (totalScore === targetNumber) {
+        alert("You Won!");
+    }
 
-
+    else if (totalScore > targetNumber) {
+        alert("You Lost!");
+    }
 
 
 
