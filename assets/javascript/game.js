@@ -26,20 +26,15 @@ $(document).ready(function () {
     //Holds the target number to win game:
     var targetNumber = 0;
     //Holds the number of Wins:
-    var totalWin = 0;
+    var totalWin = 1;
     //Holds the number of Losses:
-    var totalLoss = 0;
-
-
-
-
-
+    var totalLoss = 1;
 
     //Functions Code
     //`````````````````````````````````````````````````````````````````````````
 
     //This function will start the game at the beginning as
-    //well as reset the game:
+    //well as reset the total score and set random numbers:
     function startGame() {
         //Reset total score to 0
         totalScore = 0;
@@ -52,14 +47,7 @@ $(document).ready(function () {
         rupee.yellow.value = randomNum(1, 12);
         //Changes to HTML
         $("#randomNum").text(targetNumber);
-
-        // console.log(targetNumber);
-        // console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        // console.log(rupee.blue.value);
-        // console.log(rupee.green.value);
-        // console.log(rupee.red.value);
-        // console.log(rupee.yellow.value);
-        // console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        $("#totalScore").text("0");
     }
 
     //This function will create a random number when called
@@ -67,18 +55,20 @@ $(document).ready(function () {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    //This function will check if user won or lost and reset the game
+    function gameEnd() {
+        if (totalScore === targetNumber) {
+            alert("You Won! Hero of Hyrule!");
+            $("#totalWin").text("Wins: " + totalWin++);
+            startGame();
+        }
 
-
-
-
-
-
-
-
-
-
-
-
+        else if (totalScore > targetNumber) {
+            alert("Round Over Link! Try Again!");
+            $("#totalLoss").text("Losses: " + totalLoss++);
+            startGame();
+        }
+    }
 
     //Main Process Code
     //`````````````````````````````````````````````````````````````````````````
@@ -86,15 +76,14 @@ $(document).ready(function () {
     //Call Start Game Function
     startGame();
 
-
-
-
     //Make an on-click event for each rupee for when they are clicked
     $("#blueRupee").on("click", function () {
         //Adds blue rupee value to total score variable.
         totalScore = totalScore + rupee.blue.value;
         //Displays total score from blue rupee click.
         $("#totalScore").text(totalScore);
+        //Calls on the gameEnd function which contains if statements
+        gameEnd();
     });
 
     $("#greenRupee").on("click", function () {
@@ -102,6 +91,8 @@ $(document).ready(function () {
         totalScore = totalScore + rupee.green.value;
         //Displays total score from green rupee click.
         $("#totalScore").text(totalScore);
+        //Calls on the gameEnd function which contains if statements
+        gameEnd();
     });
 
     $("#redRupee").on("click", function () {
@@ -109,6 +100,8 @@ $(document).ready(function () {
         totalScore = totalScore + rupee.red.value;
         //Displays total score from red rupee click.
         $("#totalScore").text(totalScore);
+        //Calls on the gameEnd function which contains if statements
+        gameEnd();
     });
 
     $("#yellowRupee").on("click", function () {
@@ -116,16 +109,10 @@ $(document).ready(function () {
         totalScore = totalScore + rupee.yellow.value;
         //Displays total score from yellow rupee click.
         $("#totalScore").text(totalScore);
+        //Calls on the gameEnd function which contains if statements
+        gameEnd();
     });
 
-
-    if (totalScore === targetNumber) {
-        alert("You Won!");
-    }
-
-    else if (totalScore > targetNumber) {
-        alert("You Lost!");
-    }
 
 
 
